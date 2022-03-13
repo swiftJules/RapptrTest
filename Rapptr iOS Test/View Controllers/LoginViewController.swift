@@ -67,12 +67,30 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Actions
-    @IBAction func backAction(_ sender: Any) {
-        let mainMenuViewController = MenuViewController()
-        self.navigationController?.pushViewController(mainMenuViewController, animated: true)
+    func displayAlert() {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        //alert.addAction(UIAlertAction(title: "Add To Cart", style: .default, handler: {(alert:UIAlertAction!) in self.appendToCartArray(album: cell.albumName.text ?? "")
+//            self.updateCartImage()
+//        })
+//        )
+        
+        // alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true)
     }
     
+    // MARK: - Actions
     @IBAction func didPressLoginButton(_ sender: Any) {
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        // client?.login(email: email, password: password, completion: <#T##(String) -> Void#>, error: <#T##(String?) -> Void#>)
     }
 }
+
+//extension LoginViewController: UITextFieldDelegate {
+//
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        return true
+//    }
+//
+//}
