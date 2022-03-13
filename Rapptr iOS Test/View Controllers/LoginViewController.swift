@@ -30,6 +30,10 @@ class LoginViewController: UIViewController {
     // MARK: - Properties
     private var client: LoginClient?
     
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    
     var imageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.image = UIImage(named: "img_login")
@@ -50,6 +54,12 @@ class LoginViewController: UIViewController {
             imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+        configureButton()
+    }
+    
+    func configureButton() {
+        loginButton.backgroundColor = UIColor(hex: 0x0E5C89)
+        loginButton.titleLabel?.textColor = UIColor(hex: 0xFFFFFF)
     }
     
     override func didReceiveMemoryWarning() {
