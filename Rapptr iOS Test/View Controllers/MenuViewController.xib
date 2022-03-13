@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuViewController" customModule="iOSTest" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuViewController" customModule="Rapptr_iOS_Test" customModuleProvider="target">
             <connections>
                 <outlet property="animationButton" destination="9uL-ib-Ayk" id="ldi-Bd-aNe"/>
                 <outlet property="chatButton" destination="4Fa-5D-jYS" id="WQf-Sy-Tse"/>
@@ -22,42 +20,116 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Fa-5D-jYS" userLabel="UIButton">
-                    <rect key="frame" x="56" y="100" width="263" height="56"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Fa-5D-jYS" userLabel="Chat">
+                    <rect key="frame" x="30" y="227" width="315" height="55"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="55" id="qlN-wc-eDC"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="Chat">
+                    <state key="normal">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="didPressChatButton:" destination="-1" eventType="touchUpInside" id="vKS-9T-LMp"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6JX-Lv-AOm" userLabel="UIButton">
-                    <rect key="frame" x="56" y="175" width="263" height="56"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_chat" translatesAutoresizingMaskIntoConstraints="NO" id="too-38-9pd">
+                    <rect key="frame" x="54" y="242.5" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24" id="1pX-3Z-ftn"/>
+                        <constraint firstAttribute="width" constant="24" id="SJw-5d-K0J"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6JX-Lv-AOm" userLabel="Login">
+                    <rect key="frame" x="30" y="306" width="315" height="55"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="55" id="fF0-Qu-Bv4"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="Login">
+                    <state key="normal">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="didPressLoginButton:" destination="-1" eventType="touchUpInside" id="vMe-dG-aNn"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9uL-ib-Ayk" userLabel="UIButton">
-                    <rect key="frame" x="56" y="250" width="263" height="56"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_login" translatesAutoresizingMaskIntoConstraints="NO" id="77f-1k-oci">
+                    <rect key="frame" x="54" y="321.5" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="24" id="2Ts-Cq-3sa"/>
+                        <constraint firstAttribute="height" constant="24" id="9p3-cF-T7l"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9uL-ib-Ayk" userLabel="Animation">
+                    <rect key="frame" x="30" y="385" width="315" height="55"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="55" id="zNo-jR-dQI"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="Animation">
+                    <state key="normal">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="didPressAnimationButton:" destination="-1" eventType="touchUpInside" id="J6O-uG-LwS"/>
                     </connections>
                 </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_animation" translatesAutoresizingMaskIntoConstraints="NO" id="gOv-SS-5ld">
+                    <rect key="frame" x="54" y="400.5" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="24" id="3G9-j0-g64"/>
+                        <constraint firstAttribute="height" constant="24" id="nlA-WJ-gsP"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHAT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vem-ZH-qD7">
+                    <rect key="frame" x="94" y="245" width="43.5" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOGIN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U7J-LR-JRF">
+                    <rect key="frame" x="94" y="323" width="51.5" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ANIMATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jKu-iW-021">
+                    <rect key="frame" x="94" y="385" width="90" height="55"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <point key="canvasLocation" x="381" y="468"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="4Fa-5D-jYS" secondAttribute="trailing" constant="30" id="45M-c0-bqn"/>
+                <constraint firstItem="4Fa-5D-jYS" firstAttribute="leading" secondItem="too-38-9pd" secondAttribute="leading" constant="-24" id="4tS-ED-OaY"/>
+                <constraint firstAttribute="bottom" secondItem="jKu-iW-021" secondAttribute="bottom" constant="227" id="K4I-8w-D3y"/>
+                <constraint firstItem="jKu-iW-021" firstAttribute="leading" secondItem="gOv-SS-5ld" secondAttribute="trailing" constant="16" id="Kdk-J5-wJj"/>
+                <constraint firstItem="4Fa-5D-jYS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="LAA-fb-gjJ"/>
+                <constraint firstAttribute="trailing" secondItem="9uL-ib-Ayk" secondAttribute="trailing" constant="30" id="M0K-IA-gS2"/>
+                <constraint firstItem="9uL-ib-Ayk" firstAttribute="top" secondItem="6JX-Lv-AOm" secondAttribute="bottom" constant="24" id="PKV-g7-xAY"/>
+                <constraint firstItem="U7J-LR-JRF" firstAttribute="leading" secondItem="77f-1k-oci" secondAttribute="trailing" constant="16" id="UC2-WI-BiA"/>
+                <constraint firstItem="9uL-ib-Ayk" firstAttribute="leading" secondItem="gOv-SS-5ld" secondAttribute="leading" constant="-24" id="VFb-6e-Zgd"/>
+                <constraint firstItem="gOv-SS-5ld" firstAttribute="centerY" secondItem="9uL-ib-Ayk" secondAttribute="centerY" id="W0Y-5k-lcw"/>
+                <constraint firstItem="Vem-ZH-qD7" firstAttribute="centerY" secondItem="4Fa-5D-jYS" secondAttribute="centerY" id="YyI-Du-6a5"/>
+                <constraint firstAttribute="trailing" secondItem="6JX-Lv-AOm" secondAttribute="trailing" constant="30" id="bT6-uw-ErW"/>
+                <constraint firstItem="U7J-LR-JRF" firstAttribute="centerY" secondItem="6JX-Lv-AOm" secondAttribute="centerY" id="hw7-1Y-g2O"/>
+                <constraint firstItem="too-38-9pd" firstAttribute="centerY" secondItem="4Fa-5D-jYS" secondAttribute="centerY" id="jT9-Jt-bXU"/>
+                <constraint firstItem="6JX-Lv-AOm" firstAttribute="top" secondItem="4Fa-5D-jYS" secondAttribute="bottom" constant="24" id="jtr-tG-F6M"/>
+                <constraint firstItem="Vem-ZH-qD7" firstAttribute="leading" secondItem="too-38-9pd" secondAttribute="trailing" constant="16" id="kwa-JF-S42"/>
+                <constraint firstItem="jKu-iW-021" firstAttribute="centerY" secondItem="9uL-ib-Ayk" secondAttribute="centerY" id="lcl-D4-mul"/>
+                <constraint firstItem="77f-1k-oci" firstAttribute="centerY" secondItem="6JX-Lv-AOm" secondAttribute="centerY" id="mM3-FM-Ata"/>
+                <constraint firstItem="6JX-Lv-AOm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="mYk-bT-hR4"/>
+                <constraint firstItem="9uL-ib-Ayk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="pgT-c1-I7T"/>
+                <constraint firstItem="6JX-Lv-AOm" firstAttribute="leading" secondItem="77f-1k-oci" secondAttribute="leading" constant="-24" id="rpe-VQ-0Dc"/>
+                <constraint firstItem="4Fa-5D-jYS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="227" id="urR-p5-L30"/>
+            </constraints>
+            <point key="canvasLocation" x="551.20000000000005" y="312.59370314842579"/>
         </view>
     </objects>
+    <resources>
+        <image name="ic_animation" width="23" height="24"/>
+        <image name="ic_chat" width="24" height="24"/>
+        <image name="ic_login" width="24" height="24"/>
+    </resources>
 </document>
