@@ -33,10 +33,27 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var animationButton: UIButton!
     
+    var imageView: UIImageView = {
+        let imageView = UIImageView(frame: .zero)
+        imageView.image = UIImage(named: "bg_home_menu")
+        imageView.contentMode = .scaleToFill
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Coding Tasks"
+        navigationController?.navigationBar.backgroundColor = UIColor(hex: 0x0E5C89)
+        
+        view.insertSubview(imageView, at: 0)
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: view.topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
     
     // MARK: - Actions
@@ -54,4 +71,17 @@ class MenuViewController: UIViewController {
         let animationViewController = AnimationViewController()
         navigationController?.pushViewController(animationViewController, animated: true)
     }
+}
+
+extension UIColor {
+
+    convenience init(hex: Int) {
+        let components = (
+            R: CGFloat((hex >> 16) & 0xff) / 255,
+            G: CGFloat((hex >> 08) & 0xff) / 255,
+            B: CGFloat((hex >> 00) & 0xff) / 255
+        )
+        self.init(red: components.R, green: components.G, blue: components.B, alpha: 1)
+    }
+
 }
