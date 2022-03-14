@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct Messages: Decodable {
+    let data: [Message]
+}
