@@ -7,16 +7,16 @@
 
 import Foundation
 
-struct Message {
-    var userID: Int
-    var username: String
-    var avatarURL: URL?
-    var text: String
+struct Message: Decodable {
+    var user_id: String
+    var name: String
+    var avatar_url: URL?
+    var message: String
     
     init(testName: String, withTestMessage message: String) {
-        self.userID = 0
-        self.username = testName
-        self.avatarURL = URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Smiley.svg/220px-Smiley.svg.png")
-        self.text = message
+        self.user_id = "0"
+        self.name = testName
+        self.avatar_url = URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Smiley.svg/220px-Smiley.svg.png")
+        self.message = message
     }
 }

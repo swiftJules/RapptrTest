@@ -28,7 +28,7 @@ class ChatTableViewCell: UITableViewCell {
     
     // MARK: - Public
     func setCellData(message: Message) {
-        header.text = message.username
-        body.text = message.text
+        header.text = message.name
+        body.text = message.message
     }
 }
