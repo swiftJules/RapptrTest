@@ -4,6 +4,8 @@
 //
 //  Copyright © 2020 Rapptr Labs. All rights reserved.
 
+import Alamofire
+import Combine
 import UIKit
 
 class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -22,32 +24,19 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
      **/
     
     // MARK: - Properties
-    private var client: ChatClient?
-    private var messages: [Message]?
-    
+    var client: ChatClient?
+    private var messages = [Message]()
+    private var cancellableSet: Set<AnyCancellable> = []
+
     // MARK: - Outlets
     @IBOutlet weak var chatTable: UITableView!
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        messages = [Message]()
+        fetchChat()
         configureTable(tableView: chatTable)
         title = "Chat"
-        
-        // TODO: Remove test data when we have actual data from the server loaded
-        messages?.append(Message(testName: "James", withTestMessage: "Hey Guys!"))
-        messages?.append(Message(testName:"Paul", withTestMessage:"What's up?"))
-        messages?.append(Message(testName:"Amy", withTestMessage:"Hey! :)"))
-        messages?.append(Message(testName:"James", withTestMessage:"Want to grab some food later?"))
-        messages?.append(Message(testName:"Paul", withTestMessage:"Sure, time and place?"))
-        messages?.append(Message(testName:"Amy", withTestMessage:"YAS! I am starving!!!"))
-        messages?.append(Message(testName:"James", withTestMessage:"1 hr at the Local Burger sound good?"))
-        messages?.append(Message(testName:"Paul", withTestMessage:"Sure thing"))
-        messages?.append(Message(testName:"Amy", withTestMessage:"See you there :P"))
-        
-        chatTable.reloadData()
     }
     
     // MARK: - Private
@@ -58,6 +47,22 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.tableFooterView = UIView(frame: .zero)
     }
     
+    func fetchChat() {
+        let client = ChatClient()
+        client.fetchChats()
+            .sink { (dataResponse) in
+                if dataResponse.error != nil {
+                    // handle error
+                } else {
+                    print(dataResponse)
+                    if let messageList = dataResponse.value?.data {
+                        self.messages = messageList
+                        self.chatTable.reloadData()
+                    }
+                }
+            }.store(in: &cancellableSet)
+    }
+        
     // MARK: - UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: ChatTableViewCell? = nil
@@ -65,12 +70,12 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let nibs = Bundle.main.loadNibNamed("ChatTableViewCell", owner: self, options: nil)
             cell = nibs?[0] as? ChatTableViewCell
         }
-        cell?.setCellData(message: messages![indexPath.row])
+        cell?.setCellData(message: messages[indexPath.row])
         return cell!
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return messages!.count
+        return messages.count
     }
     
     // MARK: - UITableViewDelegate
