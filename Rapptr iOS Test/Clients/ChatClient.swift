@@ -24,7 +24,7 @@ class ChatClient {
     var session: URLSession?
     let urlString = "http://dev.rapptrlabs.com/Tests/scripts/chat_log.php"
     
-    func fetchChats() -> AnyPublisher<DataResponse<Messages, NetworkError>, Never> {
+    func fetchChats() -> AnyPublisher<DataResponse<Messages, Error>, Never> {
         let url = URL(string: "http://dev.rapptrlabs.com/Tests/scripts/chat_log.php")!
         return AF.request(url,
                           method: .get)
@@ -32,21 +32,10 @@ class ChatClient {
             .publishDecodable(type: Messages.self)
             .map { response in
                 response.mapError { error in
-                    let backendError = response.data.flatMap { try? JSONDecoder().decode(BackendError.self, from: $0)}
-                    return NetworkError(initialError: error, backendError: backendError)
+                    return error
                 }
             }
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
-}
-
-struct NetworkError: Error {
-  let initialError: AFError
-  let backendError: BackendError?
-}
-
-struct BackendError: Codable, Error {
-    var status: String
-    var message: String
 }
