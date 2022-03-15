@@ -4,6 +4,7 @@
 //
 //  Copyright © 2020 Rapptr Labs. All rights reserved.
 
+import Combine
 import UIKit
 
 class LoginViewController: UIViewController {
@@ -29,6 +30,8 @@ class LoginViewController: UIViewController {
     
     // MARK: - Properties
     private var client: LoginClient?
+    private var cancellableSet: Set<AnyCancellable> = []
+
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -69,7 +72,7 @@ class LoginViewController: UIViewController {
     
     func displayAlert() {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        //alert.addAction(UIAlertAction(title: "Add To Cart", style: .default, handler: {(alert:UIAlertAction!) in self.appendToCartArray(album: cell.albumName.text ?? "")
+//        alert.addAction(UIAlertAction(title: "Add To Cart", style: .default, handler: {(alert:UIAlertAction!) in self.appendToCartArray(album: cell.albumName.text ?? "")
 //            self.updateCartImage()
 //        })
 //        )
@@ -79,18 +82,32 @@ class LoginViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
+    func displayErrorAlert(error: Error) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: error.localizedDescription, style: .default, handler: nil))
+        
+        self.present(alert, animated: true)
+    }
+    
+    func login(email: String, password: String) {
+        let client = LoginClient()
+        client.login(email: email, password: password)
+
+            .sink { (dataResponse) in
+                if dataResponse.error != nil {
+                    self.displayErrorAlert(error: dataResponse.error!)
+                } else {
+                    print(dataResponse)
+                    
+                }
+            }.store(in: &cancellableSet)
+    }
+    
     // MARK: - Actions
     @IBAction func didPressLoginButton(_ sender: Any) {
         guard let email = emailTextField.text else { return }
         guard let password = passwordTextField.text else { return }
-        // client?.login(email: email, password: password, completion: <#T##(String) -> Void#>, error: <#T##(String?) -> Void#>)
+        login(email: email, password: password)
     }
 }
-
-//extension LoginViewController: UITextFieldDelegate {
-//
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        return true
-//    }
-//
-//}
