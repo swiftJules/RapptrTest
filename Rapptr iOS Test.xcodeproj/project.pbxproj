@@ -10,6 +10,7 @@
 		46CF7A6CEF0FCD8717EB04EF /* Pods_Rapptr_iOS_Test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 747A9C43C2D82C2D55710D36 /* Pods_Rapptr_iOS_Test.framework */; };
 		C9F54A0827DED4F900C86B51 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F54A0727DED4F900C86B51 /* Messages.swift */; };
 		C9F54A0A27E0CA7F00C86B51 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F54A0927E0CA7F00C86B51 /* User.swift */; };
+		C9F54A0E27E0F44100C86B51 /* AnimationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F54A0D27E0F44100C86B51 /* AnimationScreen.swift */; };
 		E9414DB726C45CF300512A71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9414DB626C45CF300512A71 /* AppDelegate.swift */; };
 		E9414DC026C45CF400512A71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9414DBF26C45CF400512A71 /* Assets.xcassets */; };
 		E9414DC326C45CF400512A71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9414DC126C45CF400512A71 /* LaunchScreen.storyboard */; };
@@ -24,7 +25,6 @@
 		E9414DE426C4618900512A71 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9414DDC26C4618900512A71 /* MenuViewController.xib */; };
 		E9414DE526C4618900512A71 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9414DDD26C4618900512A71 /* LoginViewController.xib */; };
 		E9414DE626C4618900512A71 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9414DDE26C4618900512A71 /* LoginViewController.swift */; };
-		E9414DE726C4618900512A71 /* AnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9414DDF26C4618900512A71 /* AnimationViewController.xib */; };
 		E9414DE826C4618900512A71 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9414DE026C4618900512A71 /* MenuViewController.swift */; };
 		E9414DEA26C468D700512A71 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9414DE926C468D700512A71 /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
@@ -35,6 +35,7 @@
 		B9379A38EE31110CB52C3542 /* Pods-Rapptr iOS Test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rapptr iOS Test.debug.xcconfig"; path = "Target Support Files/Pods-Rapptr iOS Test/Pods-Rapptr iOS Test.debug.xcconfig"; sourceTree = "<group>"; };
 		C9F54A0727DED4F900C86B51 /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 		C9F54A0927E0CA7F00C86B51 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C9F54A0D27E0F44100C86B51 /* AnimationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationScreen.swift; sourceTree = "<group>"; };
 		E9414DB326C45CF300512A71 /* Rapptr iOS Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rapptr iOS Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9414DB626C45CF300512A71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9414DBF26C45CF400512A71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,7 +52,6 @@
 		E9414DDC26C4618900512A71 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		E9414DDD26C4618900512A71 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		E9414DDE26C4618900512A71 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		E9414DDF26C4618900512A71 /* AnimationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnimationViewController.xib; sourceTree = "<group>"; };
 		E9414DE026C4618900512A71 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		E9414DE926C468D700512A71 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				E9414DD326C4617B00512A71 /* Cells */,
+				C9F54A0D27E0F44100C86B51 /* AnimationScreen.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -159,7 +160,6 @@
 			isa = PBXGroup;
 			children = (
 				E9414DDA26C4618900512A71 /* AnimationViewController.swift */,
-				E9414DDF26C4618900512A71 /* AnimationViewController.xib */,
 				E9414DD926C4618900512A71 /* ChatViewController.swift */,
 				E9414DDB26C4618900512A71 /* ChatViewController.xib */,
 				E9414DDE26C4618900512A71 /* LoginViewController.swift */,
@@ -232,7 +232,6 @@
 				E9414DC326C45CF400512A71 /* LaunchScreen.storyboard in Resources */,
 				E9414DE426C4618900512A71 /* MenuViewController.xib in Resources */,
 				E9414DD726C4617B00512A71 /* ChatTableViewCell.xib in Resources */,
-				E9414DE726C4618900512A71 /* AnimationViewController.xib in Resources */,
 				E9414DC026C45CF400512A71 /* Assets.xcassets in Resources */,
 				E9414DE326C4618900512A71 /* ChatViewController.xib in Resources */,
 				E9414DE526C4618900512A71 /* LoginViewController.xib in Resources */,
@@ -290,6 +289,7 @@
 			files = (
 				E9414DD126C460A600512A71 /* ChatClient.swift in Sources */,
 				E9414DE126C4618900512A71 /* ChatViewController.swift in Sources */,
+				C9F54A0E27E0F44100C86B51 /* AnimationScreen.swift in Sources */,
 				E9414DCE26C45F9200512A71 /* LoginClient.swift in Sources */,
 				E9414DE826C4618900512A71 /* MenuViewController.swift in Sources */,
 				E9414DCB26C45EC900512A71 /* Message.swift in Sources */,
