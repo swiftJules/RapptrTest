@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct AnimationScreen: View {
-    @State var animationShown: Bool = false
-    @State var fadeIn: Bool = false
+    @State private var animationShown: Bool = false
+    @State private var fadeIn: Bool = false
+    @State private var imageOffset: CGSize = .zero
+    
     var body: some View {
         VStack {
             Spacer()
@@ -17,6 +19,16 @@ struct AnimationScreen: View {
                 Image("ic_logo")
                     .resizable()
                     .scaledToFit()
+                    .offset(x: imageOffset.width, y: imageOffset.height)
+                    .gesture(
+                        DragGesture()
+                            .onChanged { gesture in
+                                imageOffset = gesture.translation
+                            }
+                            .onEnded { _ in
+                                imageOffset = .zero
+                            }
+                    )
             }
             Spacer()
             Button {
