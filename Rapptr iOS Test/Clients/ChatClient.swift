@@ -21,7 +21,6 @@ import Foundation
  */
 
 class ChatClient {
-    var session: URLSession?
     let urlString = "http://dev.rapptrlabs.com/Tests/scripts/chat_log.php"
     
     func fetchChats() -> AnyPublisher<DataResponse<Messages, Error>, Never> {
