@@ -5,6 +5,8 @@
 //  Created by Ethan Humphrey on 8/11/21.
 //
 
+import Alamofire
+import Combine
 import Foundation
 
 /**
@@ -23,21 +25,23 @@ import Foundation
 */
 
 class LoginClient {
-    
-    var session: URLSession?
-    
-    func login(email: String, password: String, completion: @escaping (String) -> Void, error errorHandler: @escaping (String?) -> Void) {
         
-     let urlString = "http://dev.rapptrlabs.com/Tests/scripts/login.php"
+    func login(email: String, password: String) -> AnyPublisher<DataResponse<User, Error>, Never> {
         
-        var components = URLComponents()
-        let emailItem = URLQueryItem(name: "email", value: email)
-        let passwordItem = URLQueryItem(name: "password", value: password)
-        components.queryItems = [emailItem, passwordItem]
-        
-        guard let url = URL(string: urlString) else { return }
-        session?.dataTask(with: url) { data, response, error in
-            
-        }.resume()
+        let url = URL(string: "http://dev.rapptrlabs.com/Tests/scripts/login.php?email=info@rapptrlabs.com&password=Test123")!
+        return AF.request(url,
+                          method: .get)
+            .validate()
+            .response { response in
+                print(response)
+            }
+            .publishDecodable(type: User.self)
+            .map { response in
+                response.mapError { error in
+                    return error
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
     }
 }
