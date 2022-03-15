@@ -37,6 +37,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         fetchChat()
         configureTable(tableView: chatTable)
         title = "Chat"
+        view.backgroundColor = UIColor(hex: 0xF9F9F9)
     }
     
     // MARK: - Private
@@ -44,7 +45,10 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "ChatTableViewCell", bundle: nil), forCellReuseIdentifier: "ChatTableViewCell")
+        tableView.separatorStyle = .none
         tableView.tableFooterView = UIView(frame: .zero)
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 100
     }
     
     func fetchChat() {
@@ -71,21 +75,11 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
             cell = nibs?[0] as? ChatTableViewCell
         }
         cell?.setCellData(message: messages[indexPath.row])
+        cell?.backgroundColor = UIColor(hex: 0xF9F9F9)
         return cell!
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
-    }
-    
-    // MARK: - UITableViewDelegate
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 58.0
-    }
-    
-    // MARK: - IBAction
-    @IBAction func backAction(_ sender: Any) {
-        let mainMenuViewController = MenuViewController()
-        self.navigationController?.pushViewController(mainMenuViewController, animated: true)
     }
 }
