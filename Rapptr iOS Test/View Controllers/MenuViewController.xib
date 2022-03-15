@@ -93,7 +93,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ANIMATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jKu-iW-021">
-                    <rect key="frame" x="94" y="385" width="90" height="55"/>
+                    <rect key="frame" x="94" y="403" width="90" height="19.5"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -103,7 +103,6 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="4Fa-5D-jYS" secondAttribute="trailing" constant="30" id="45M-c0-bqn"/>
                 <constraint firstItem="4Fa-5D-jYS" firstAttribute="leading" secondItem="too-38-9pd" secondAttribute="leading" constant="-24" id="4tS-ED-OaY"/>
-                <constraint firstAttribute="bottom" secondItem="jKu-iW-021" secondAttribute="bottom" constant="227" id="K4I-8w-D3y"/>
                 <constraint firstItem="jKu-iW-021" firstAttribute="leading" secondItem="gOv-SS-5ld" secondAttribute="trailing" constant="16" id="Kdk-J5-wJj"/>
                 <constraint firstItem="4Fa-5D-jYS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="LAA-fb-gjJ"/>
                 <constraint firstAttribute="trailing" secondItem="9uL-ib-Ayk" secondAttribute="trailing" constant="30" id="M0K-IA-gS2"/>
