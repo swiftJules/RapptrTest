@@ -72,20 +72,19 @@ class LoginViewController: UIViewController {
     
     func displayAlert() {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-//        alert.addAction(UIAlertAction(title: "Add To Cart", style: .default, handler: {(alert:UIAlertAction!) in self.appendToCartArray(album: cell.albumName.text ?? "")
-//            self.updateCartImage()
-//        })
-//        )
-        
-        // alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
+        alert.addAction(UIAlertAction(title: "Success", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: {_ in
+            // navigate to Menu
+        })
+        )
+                
         self.present(alert, animated: true)
     }
     
     func displayErrorAlert(error: Error) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
         alert.addAction(UIAlertAction(title: error.localizedDescription, style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
         
         self.present(alert, animated: true)
     }
