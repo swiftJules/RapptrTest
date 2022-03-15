@@ -28,7 +28,7 @@ class LoginClient {
         
     func login(email: String, password: String) -> AnyPublisher<DataResponse<User, Error>, Never> {
         
-        let url = URL(string: "http://dev.rapptrlabs.com/Tests/scripts/login.php?email=info@rapptrlabs.com&password=Test123")!
+        let url = URL(string: "http://dev.rapptrlabs.com/Tests/scripts/login.php?email=\(email)&password=\(password)")!
         return AF.request(url,
                           method: .get)
             .validate()

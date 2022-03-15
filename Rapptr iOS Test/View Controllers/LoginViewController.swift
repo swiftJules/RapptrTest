@@ -32,7 +32,6 @@ class LoginViewController: UIViewController {
     private var client: LoginClient?
     private var cancellableSet: Set<AnyCancellable> = []
 
-    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -92,13 +91,12 @@ class LoginViewController: UIViewController {
     func login(email: String, password: String) {
         let client = LoginClient()
         client.login(email: email, password: password)
-
             .sink { (dataResponse) in
                 if dataResponse.error != nil {
                     self.displayErrorAlert(error: dataResponse.error!)
                 } else {
                     print(dataResponse)
-                    
+                    self.displayAlert()
                 }
             }.store(in: &cancellableSet)
     }
