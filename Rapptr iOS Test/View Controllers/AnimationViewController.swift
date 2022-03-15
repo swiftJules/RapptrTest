@@ -5,6 +5,7 @@
 //  Copyright © 2020 Rapptr Labs. All rights reserved.
 
 import UIKit
+import SwiftUI
 
 class AnimationViewController: UIViewController {
     
@@ -27,13 +28,28 @@ class AnimationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Animation"
+        
+        let controller = UIHostingController(rootView: AnimationScreen())
+        addChild(controller)
+        view.addSubview(controller.view)
+        controller.didMove(toParent: self)
+        
+        controller.view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate(
+            [
+                controller.view.topAnchor.constraint(equalTo: self.view.topAnchor),
+                controller.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+                controller.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+                controller.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+            ]
+        )
     }
     
     // MARK: - Actions
-    @IBAction func backAction(_ sender: Any) {
-        let mainMenuViewController = MenuViewController()
-        self.navigationController?.pushViewController(mainMenuViewController, animated: true)
-    }
+//    @IBAction func backAction(_ sender: Any) {
+//        let mainMenuViewController = MenuViewController()
+//        self.navigationController?.pushViewController(mainMenuViewController, animated: true)
+//    }
     
     @IBAction func didPressFade(_ sender: Any) {
     }
