@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+struct RequestResponseTime: Decodable {
+    let time: TimeInterval
+}
+
+struct RequestError: Error {
+    let error: String
+    let time: TimeInterval
+}
