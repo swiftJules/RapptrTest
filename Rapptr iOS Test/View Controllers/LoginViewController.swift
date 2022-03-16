@@ -4,7 +4,6 @@
 //
 //  Copyright © 2020 Rapptr Labs. All rights reserved.
 
-import Combine
 import UIKit
 
 class LoginViewController: UIViewController {
@@ -30,7 +29,6 @@ class LoginViewController: UIViewController {
     
     // MARK: - Properties
     private var client: LoginClient?
-    private var cancellableSet: Set<AnyCancellable> = []
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -47,8 +45,7 @@ class LoginViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Login"
-        
+        title = "Login"        
         view.insertSubview(imageView, at: 0)
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -57,6 +54,7 @@ class LoginViewController: UIViewController {
             imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         configureButton()
+        configureTextFields()
     }
     
     func configureButton() {
@@ -64,41 +62,45 @@ class LoginViewController: UIViewController {
         loginButton.titleLabel?.textColor = UIColor(hex: 0xFFFFFF)
     }
     
+    func configureTextFields() {
+        emailTextField.setLeftPaddingPoints(24)
+        passwordTextField.setLeftPaddingPoints(24)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func displayAlert() {
+    func displayAlert(time: TimeInterval) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Success", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: String(time), style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: {_ in
-            // navigate to Menu
+            self.navigationController?.popToRootViewController(animated: true)
         })
         )
-                
         self.present(alert, animated: true)
     }
     
-    func displayErrorAlert(error: Error) {
+    func displayErrorAlert(error: Error, time: TimeInterval) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Failure", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: error.localizedDescription, style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-        
         self.present(alert, animated: true)
     }
     
     func login(email: String, password: String) {
         let client = LoginClient()
-        client.login(email: email, password: password)
-            .sink { (dataResponse) in
-                if dataResponse.error != nil {
-                    self.displayErrorAlert(error: dataResponse.error!)
-                } else {
-                    print(dataResponse)
-                    self.displayAlert()
-                }
-            }.store(in: &cancellableSet)
+        client.login(email: email, password: password) { time, error in
+            guard let time = time else { return }
+            if error == nil {
+                self.displayAlert(time: time)
+            } else {
+                self.displayErrorAlert(error: error!, time: time)
+            }
+        }
     }
     
     // MARK: - Actions
@@ -106,5 +108,22 @@ class LoginViewController: UIViewController {
         guard let email = emailTextField.text else { return }
         guard let password = passwordTextField.text else { return }
         login(email: email, password: password)
+        emailTextField.text = ""
+        passwordTextField.text = ""
+    }
+}
+
+extension LoginViewController: UITextViewDelegate {
+    private func textFieldDidBeginEditing(textField: UITextField) {
+        emailTextField.placeholder = nil
+        passwordTextField.placeholder = nil
+    }
+}
+
+extension UITextField {
+    func setLeftPaddingPoints(_ amount:CGFloat){
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
+        self.leftView = paddingView
+        self.leftViewMode = .always
     }
 }
