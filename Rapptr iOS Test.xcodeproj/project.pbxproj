@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		46CF7A6CEF0FCD8717EB04EF /* Pods_Rapptr_iOS_Test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 747A9C43C2D82C2D55710D36 /* Pods_Rapptr_iOS_Test.framework */; };
 		C9F54A0827DED4F900C86B51 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F54A0727DED4F900C86B51 /* Messages.swift */; };
-		C9F54A0A27E0CA7F00C86B51 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F54A0927E0CA7F00C86B51 /* User.swift */; };
 		C9F54A0E27E0F44100C86B51 /* AnimationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F54A0D27E0F44100C86B51 /* AnimationScreen.swift */; };
+		C9F54A1027E20B8800C86B51 /* RequestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F54A0F27E20B8800C86B51 /* RequestResponse.swift */; };
 		E9414DB726C45CF300512A71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9414DB626C45CF300512A71 /* AppDelegate.swift */; };
 		E9414DC026C45CF400512A71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9414DBF26C45CF400512A71 /* Assets.xcassets */; };
 		E9414DC326C45CF400512A71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9414DC126C45CF400512A71 /* LaunchScreen.storyboard */; };
@@ -34,8 +34,8 @@
 		9E67A23594E3DE9AE802DB0F /* Pods-Rapptr iOS Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rapptr iOS Test.release.xcconfig"; path = "Target Support Files/Pods-Rapptr iOS Test/Pods-Rapptr iOS Test.release.xcconfig"; sourceTree = "<group>"; };
 		B9379A38EE31110CB52C3542 /* Pods-Rapptr iOS Test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rapptr iOS Test.debug.xcconfig"; path = "Target Support Files/Pods-Rapptr iOS Test/Pods-Rapptr iOS Test.debug.xcconfig"; sourceTree = "<group>"; };
 		C9F54A0727DED4F900C86B51 /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
-		C9F54A0927E0CA7F00C86B51 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C9F54A0D27E0F44100C86B51 /* AnimationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationScreen.swift; sourceTree = "<group>"; };
+		C9F54A0F27E20B8800C86B51 /* RequestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestResponse.swift; sourceTree = "<group>"; };
 		E9414DB326C45CF300512A71 /* Rapptr iOS Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rapptr iOS Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9414DB626C45CF300512A71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9414DBF26C45CF400512A71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 			children = (
 				E9414DCA26C45EC900512A71 /* Message.swift */,
 				C9F54A0727DED4F900C86B51 /* Messages.swift */,
-				C9F54A0927E0CA7F00C86B51 /* User.swift */,
+				C9F54A0F27E20B8800C86B51 /* RequestResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -296,9 +296,9 @@
 				E9414DEA26C468D700512A71 /* SceneDelegate.swift in Sources */,
 				C9F54A0827DED4F900C86B51 /* Messages.swift in Sources */,
 				E9414DD626C4617B00512A71 /* ChatTableViewCell.swift in Sources */,
-				C9F54A0A27E0CA7F00C86B51 /* User.swift in Sources */,
 				E9414DE226C4618900512A71 /* AnimationViewController.swift in Sources */,
 				E9414DB726C45CF300512A71 /* AppDelegate.swift in Sources */,
+				C9F54A1027E20B8800C86B51 /* RequestResponse.swift in Sources */,
 				E9414DE626C4618900512A71 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
