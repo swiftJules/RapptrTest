@@ -34,10 +34,10 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor(hex: 0xF9F9F9)
         fetchChat()
         configureTable(tableView: chatTable)
         title = "Chat"
-        view.backgroundColor = UIColor(hex: 0xF9F9F9)
     }
     
     // MARK: - Private
@@ -69,14 +69,10 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
     // MARK: - UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell: ChatTableViewCell? = nil
-        if cell == nil {
-            let nibs = Bundle.main.loadNibNamed("ChatTableViewCell", owner: self, options: nil)
-            cell = nibs?[0] as? ChatTableViewCell
-        }
-        cell?.setCellData(message: messages[indexPath.row])
-        cell?.backgroundColor = UIColor(hex: 0xF9F9F9)
-        return cell!
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ChatTableViewCell") as? ChatTableViewCell else { fatalError() }
+        cell.setCellData(message: messages[indexPath.row])
+        cell.backgroundColor = UIColor(hex: 0xF9F9F9)
+        return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
