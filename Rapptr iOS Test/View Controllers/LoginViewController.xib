@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xoa-Sh-ZA6" userLabel="UITextField">
-                    <rect key="frame" x="30" y="128" width="315" height="55"/>
+                    <rect key="frame" x="30" y="64" width="315" height="55"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="fzo-A3-itq"/>
                     </constraints>
@@ -30,7 +30,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNN-sf-pf9">
-                    <rect key="frame" x="30" y="286" width="315" height="55"/>
+                    <rect key="frame" x="30" y="222" width="315" height="55"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="u5L-hm-Xdd"/>
                     </constraints>
@@ -41,7 +41,7 @@
                     </connections>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Yh-GL-2qX" userLabel="UITextField">
-                    <rect key="frame" x="30" y="207" width="315" height="55"/>
+                    <rect key="frame" x="30" y="143" width="315" height="55"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="tdX-D3-4Lq"/>
                     </constraints>
@@ -60,7 +60,7 @@
                 <constraint firstItem="dNN-sf-pf9" firstAttribute="top" secondItem="9Yh-GL-2qX" secondAttribute="bottom" constant="24" id="g1q-Sh-Taf"/>
                 <constraint firstItem="9Yh-GL-2qX" firstAttribute="top" secondItem="xoa-Sh-ZA6" secondAttribute="bottom" constant="24" id="jYo-56-rTP"/>
                 <constraint firstItem="dNN-sf-pf9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="kS9-1h-K3M"/>
-                <constraint firstAttribute="top" secondItem="xoa-Sh-ZA6" secondAttribute="top" constant="-128" id="xOx-78-uOM"/>
+                <constraint firstAttribute="topMargin" secondItem="xoa-Sh-ZA6" secondAttribute="top" constant="-64" id="xOx-78-uOM"/>
             </constraints>
             <point key="canvasLocation" x="551.44927536231887" y="313.05803571428572"/>
         </view>
