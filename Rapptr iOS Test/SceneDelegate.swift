@@ -19,8 +19,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         
         let menuViewController = MenuViewController(nibName: "MenuViewController", bundle: nil)
+        menuViewController.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         let navigationController = UINavigationController(rootViewController: menuViewController)
-        
+
         window.rootViewController = navigationController
         
         self.window = window

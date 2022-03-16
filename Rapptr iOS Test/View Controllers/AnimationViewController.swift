@@ -27,8 +27,7 @@ class AnimationViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Animation"
-        
+        title = "Animation"        
         let controller = UIHostingController(rootView: AnimationScreen())
         addChild(controller)
         view.addSubview(controller.view)
