@@ -6,7 +6,6 @@
 //
 
 import Alamofire
-import Combine
 import Foundation
 
 /**
@@ -22,26 +21,27 @@ import Foundation
  * 4) email - info@rapptrlabs.com
  *   password - Test123
  *
-*/
+ */
 
 class LoginClient {
+    let startDate = Date()
+    
+    func login(email: String, password: String, completion: @escaping (_ time: TimeInterval?, _ error: RequestError?) -> ()) -> Void {
+        let requestParams = RequestParameters(email: email, password: password)
+        let url = URL(string: "http://dev.rapptrlabs.com/Tests/scripts/login.php")!
         
-    func login(email: String, password: String) -> AnyPublisher<DataResponse<User, Error>, Never> {
-        
-        let url = URL(string: "http://dev.rapptrlabs.com/Tests/scripts/login.php?email=\(email)&password=\(password)")!
-        return AF.request(url,
-                          method: .get)
+        AF.request(url, method: .post, parameters: ["email" : "\(requestParams.email)", "password": "\(requestParams.password)"])
             .validate()
-            .response { response in
-                print(response)
-            }
-            .publishDecodable(type: User.self)
-            .map { response in
-                response.mapError { error in
-                    return error
+            .response  { response in
+                switch response.result {
+                case .success:
+                    let requestExecutionTime = Date().timeIntervalSince(self.startDate)
+                    completion(requestExecutionTime, nil)
+                case .failure(let error):
+                    let executionTimeWithFailure = Date().timeIntervalSince(self.startDate)
+                    let requestError = RequestError(error: error.localizedDescription, time: executionTimeWithFailure)
+                    completion(executionTimeWithFailure, requestError)
                 }
             }
-            .receive(on: DispatchQueue.main)
-            .eraseToAnyPublisher()
     }
 }

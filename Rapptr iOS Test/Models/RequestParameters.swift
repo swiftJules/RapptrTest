@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct RequestParameters: Encodable {
+    let email: String
+    let password: String
+}
+
