@@ -34,7 +34,6 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(hex: 0xF9F9F9)
         fetchChat()
         configureTable(tableView: chatTable)
         title = "Chat"
@@ -44,6 +43,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     private func configureTable(tableView: UITableView) {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.backgroundColor = UIColor(hex: 0xF9F9F9)
         tableView.register(UINib(nibName: "ChatTableViewCell", bundle: nil), forCellReuseIdentifier: "ChatTableViewCell")
         tableView.separatorStyle = .none
         tableView.tableFooterView = UIView(frame: .zero)
