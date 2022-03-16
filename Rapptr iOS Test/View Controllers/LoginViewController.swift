@@ -83,7 +83,7 @@ class LoginViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
-    func displayErrorAlert(error: Error, time: TimeInterval) {
+    func displayErrorAlert(error: Error) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Failure", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: error.localizedDescription, style: .default, handler: nil))
@@ -98,7 +98,7 @@ class LoginViewController: UIViewController {
             if error == nil {
                 self.displayAlert(time: time)
             } else {
-                self.displayErrorAlert(error: error!, time: time)
+                self.displayErrorAlert(error: error!)
             }
         }
     }
