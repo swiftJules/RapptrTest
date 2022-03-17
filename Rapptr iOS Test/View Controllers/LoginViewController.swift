@@ -58,13 +58,17 @@ class LoginViewController: UIViewController {
     }
     
     func configureButton() {
-        loginButton.backgroundColor = UIColor(hex: 0x0E5C89)
         loginButton.titleLabel?.textColor = UIColor(hex: 0xFFFFFF)
+        loginButton.backgroundColor = UIColor(hex: 0x0E5C89)
     }
     
     func configureTextFields() {
         emailTextField.setLeftPaddingPoints(24)
         passwordTextField.setLeftPaddingPoints(24)
+        emailTextField.attributedPlaceholder = NSAttributedString(string: "Email",
+                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor(hex: 0x5F6063)])
+        passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password",
+                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor(hex: 0x5F6063)])
     }
     
     override func didReceiveMemoryWarning() {
@@ -73,9 +77,10 @@ class LoginViewController: UIViewController {
     }
     
     func displayAlert(time: TimeInterval) {
+        let timeInMilliseconds = String((time*1000).rounded())
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Success", style: .default, handler: nil))
-        alert.addAction(UIAlertAction(title: String(time), style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: timeInMilliseconds + " milliseconds", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: {_ in
             self.navigationController?.popToRootViewController(animated: true)
         })
@@ -87,6 +92,8 @@ class LoginViewController: UIViewController {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Failure", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: error.localizedDescription, style: .default, handler: nil))
+        UILabel.appearance(whenContainedInInstancesOf:
+        [UIAlertController.self]).numberOfLines = 0
         alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
         self.present(alert, animated: true)
     }
@@ -94,8 +101,8 @@ class LoginViewController: UIViewController {
     func login(email: String, password: String) {
         let client = LoginClient()
         client.login(email: email, password: password) { time, error in
-            guard let time = time else { return }
             if error == nil {
+                guard let time = time else { return }
                 self.displayAlert(time: time)
             } else {
                 self.displayErrorAlert(error: error!)
