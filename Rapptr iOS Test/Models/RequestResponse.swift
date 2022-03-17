@@ -13,5 +13,4 @@ struct RequestResponseTime: Decodable {
 
 struct RequestError: Error {
     let error: String
-    let time: TimeInterval
 }
