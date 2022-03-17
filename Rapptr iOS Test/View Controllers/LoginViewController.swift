@@ -58,7 +58,7 @@ class LoginViewController: UIViewController {
     }
     
     func configureButton() {
-        loginButton.titleLabel?.textColor = UIColor(hex: 0xFFFFFF)
+        loginButton.setTitleColor(UIColor(hex: 0xFFFFFF), for: .normal)
         loginButton.backgroundColor = UIColor(hex: 0x0E5C89)
     }
     
