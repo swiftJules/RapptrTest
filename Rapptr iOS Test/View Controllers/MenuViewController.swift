@@ -45,7 +45,8 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Coding Tasks"
-        navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 64)
+        navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 100)
+        
         navigationController?.navigationBar.backgroundColor = UIColor(hex: 0x0E5C89)
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor(hex: 0xFFFFFF)]
         configureButtons()
