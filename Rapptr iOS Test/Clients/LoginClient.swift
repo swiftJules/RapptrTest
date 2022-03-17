@@ -27,10 +27,9 @@ class LoginClient {
     let startDate = Date()
     
     func login(email: String, password: String, completion: @escaping (_ time: TimeInterval?, _ error: RequestError?) -> ()) -> Void {
-        let requestParams = RequestParameters(email: email, password: password)
-        let url = URL(string: "http://dev.rapptrlabs.com/Tests/scripts/login.php")!
-        
-        AF.request(url, method: .post, parameters: ["email" : "\(requestParams.email)", "password": "\(requestParams.password)"])
+        let parameters: Parameters = ["email": email, "password": password]
+        guard let url = URL(string: "http://dev.rapptrlabs.com/Tests/scripts/login.php") else { return }
+        AF.request(url, method: .post, parameters: parameters)
             .validate()
             .response  { response in
                 switch response.result {
@@ -38,9 +37,8 @@ class LoginClient {
                     let requestExecutionTime = Date().timeIntervalSince(self.startDate)
                     completion(requestExecutionTime, nil)
                 case .failure(let error):
-                    let executionTimeWithFailure = Date().timeIntervalSince(self.startDate)
-                    let requestError = RequestError(error: error.localizedDescription, time: executionTimeWithFailure)
-                    completion(executionTimeWithFailure, requestError)
+                    let requestError = RequestError(error: error.localizedDescription)
+                    completion(nil, requestError)
                 }
             }
     }
