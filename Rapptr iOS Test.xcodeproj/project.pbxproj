@@ -116,6 +116,41 @@
 			path = UIColor;
 			sourceTree = "<group>";
 		};
+		C97D80CE27E4DEA900FC8315 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				E9414DDA26C4618900512A71 /* AnimationViewController.swift */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
+		C97D80CF27E4DEAF00FC8315 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				E9414DD926C4618900512A71 /* ChatViewController.swift */,
+				E9414DDB26C4618900512A71 /* ChatViewController.xib */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		C97D80D027E4DEB600FC8315 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E9414DDD26C4618900512A71 /* LoginViewController.xib */,
+				E9414DDE26C4618900512A71 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		C97D80D127E4DEBC00FC8315 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				E9414DE026C4618900512A71 /* MenuViewController.swift */,
+				E9414DDC26C4618900512A71 /* MenuViewController.xib */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
 		E9414DAA26C45CF300512A71 = {
 			isa = PBXGroup;
 			children = (
@@ -192,13 +227,10 @@
 		E9414DD826C4618900512A71 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E9414DDA26C4618900512A71 /* AnimationViewController.swift */,
-				E9414DD926C4618900512A71 /* ChatViewController.swift */,
-				E9414DDB26C4618900512A71 /* ChatViewController.xib */,
-				E9414DDE26C4618900512A71 /* LoginViewController.swift */,
-				E9414DDD26C4618900512A71 /* LoginViewController.xib */,
-				E9414DE026C4618900512A71 /* MenuViewController.swift */,
-				E9414DDC26C4618900512A71 /* MenuViewController.xib */,
+				C97D80D127E4DEBC00FC8315 /* Menu */,
+				C97D80D027E4DEB600FC8315 /* Login */,
+				C97D80CF27E4DEAF00FC8315 /* Chat */,
+				C97D80CE27E4DEA900FC8315 /* Animation */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
