@@ -151,6 +151,14 @@
 			path = Menu;
 			sourceTree = "<group>";
 		};
+		C97D80D427E4F3EB00FC8315 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				C97D80C127E4C97300FC8315 /* Constants.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		E9414DAA26C45CF300512A71 = {
 			isa = PBXGroup;
 			children = (
@@ -174,11 +182,11 @@
 			children = (
 				E9414DB626C45CF300512A71 /* AppDelegate.swift */,
 				E9414DE926C468D700512A71 /* SceneDelegate.swift */,
-				C97D80C127E4C97300FC8315 /* Constants.swift */,
 				E9414DD226C4617B00512A71 /* Views */,
 				E9414DCF26C45F9500512A71 /* Clients */,
 				E9414DCC26C45ECD00512A71 /* Models */,
 				C97D80C327E4CA8600FC8315 /* Extensions */,
+				C97D80D427E4F3EB00FC8315 /* Utility */,
 				E9414DD826C4618900512A71 /* View Controllers */,
 				E9414DBF26C45CF400512A71 /* Assets.xcassets */,
 				E9414DC126C45CF400512A71 /* LaunchScreen.storyboard */,
