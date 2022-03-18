@@ -31,7 +31,9 @@ class ChatTableViewCell: UITableViewCell {
     
     // MARK: - Public
     func setCellData(message: Message) {
-        fetchImage(message: message)
+        if let imageURL = message.avatar_url {
+            fetchImage(url: imageURL)
+        }
         header.text = message.name
         body.text = message.message
         configureCellAppearance()
@@ -50,8 +52,7 @@ class ChatTableViewCell: UITableViewCell {
         bubble.layer.opacity = 1.0
     }
     
-    func fetchImage(message: Message) {
-        guard let url = message.avatar_url else { return }
+    func fetchImage(url: URL) {
         AF.request(url).responseData { (response) in
             if response.error == nil {                
                 if let data = response.data {
