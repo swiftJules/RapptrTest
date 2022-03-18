@@ -55,7 +55,8 @@ class ChatViewController: UIViewController, UITableViewDataSource {
         client.fetchChats()
             .sink { (dataResponse) in
                 if dataResponse.error != nil {
-                    // handle error
+                    guard let error = dataResponse.error as? AFError else { return }
+                    self.displayError(error: error)
                 } else {
                     if let messageList = dataResponse.value?.data {
                         self.messages = messageList
@@ -63,6 +64,13 @@ class ChatViewController: UIViewController, UITableViewDataSource {
                     }
                 }
             }.store(in: &cancellableSet)
+    }
+    
+    func displayError(error: AFError) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: error.localizedDescription, style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
     }
         
     // MARK: - UITableViewDataSource
