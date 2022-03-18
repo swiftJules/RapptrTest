@@ -65,6 +65,8 @@ class LoginViewController: UIViewController {
     func configureTextFields() {
         emailTextField.setLeftPaddingPoints(24)
         passwordTextField.setLeftPaddingPoints(24)
+        emailTextField.textColor = ColorConstant.chatText
+        passwordTextField.textColor = ColorConstant.chatText
         emailTextField.attributedPlaceholder = NSAttributedString(string: "Email",
                                                                   attributes: [NSAttributedString.Key.foregroundColor: ColorConstant.placeholder])
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password",
