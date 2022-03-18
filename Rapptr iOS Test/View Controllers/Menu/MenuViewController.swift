@@ -45,8 +45,6 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Coding Tasks"
-        navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 64)
-        
         navigationController?.navigationBar.backgroundColor = ColorConstant.backgroundBlue
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: ColorConstant.buttonText]
         configureButtons()
@@ -59,16 +57,16 @@ class MenuViewController: UIViewController {
         ])
     }
     
-    func configureButtons() {
-        chatButton.backgroundColor = ColorConstant.viewBackground
-        chatButton.layer.opacity = 0.8
-        chatButton.layer.cornerRadius = 8
-        loginButton.backgroundColor = ColorConstant.viewBackground
-        loginButton.layer.opacity = 0.8
-        loginButton.layer.cornerRadius = 8
-        animationButton.backgroundColor = ColorConstant.viewBackground
-        animationButton.layer.opacity = 0.8
-        animationButton.layer.cornerRadius = 8
+    private func configureButtons() {
+        [chatButton, loginButton, animationButton].forEach { button in
+            setDefaults(button: button)
+        }
+    }
+    
+    private func setDefaults(button: UIButton) {
+        button.backgroundColor = ColorConstant.viewBackground
+        button.layer.opacity = 0.8
+        button.layer.cornerRadius = 8
     }
     
     // MARK: - Actions
