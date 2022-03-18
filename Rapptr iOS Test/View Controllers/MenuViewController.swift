@@ -47,8 +47,8 @@ class MenuViewController: UIViewController {
         title = "Coding Tasks"
         navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 64)
         
-        navigationController?.navigationBar.backgroundColor = UIColor(hex: 0x0E5C89)
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor(hex: 0xFFFFFF)]
+        navigationController?.navigationBar.backgroundColor = ColorConstant.backgroundBlue
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: ColorConstant.buttonText]
         configureButtons()
         view.insertSubview(imageView, at: 0)
         NSLayoutConstraint.activate([
@@ -60,13 +60,13 @@ class MenuViewController: UIViewController {
     }
     
     func configureButtons() {
-        chatButton.backgroundColor = UIColor(hex: 0xF9F9F9)
+        chatButton.backgroundColor = ColorConstant.viewBackground
         chatButton.layer.opacity = 0.8
         chatButton.layer.cornerRadius = 8
-        loginButton.backgroundColor = UIColor(hex: 0xF9F9F9)
+        loginButton.backgroundColor = ColorConstant.viewBackground
         loginButton.layer.opacity = 0.8
         loginButton.layer.cornerRadius = 8
-        animationButton.backgroundColor = UIColor(hex: 0xF9F9F9)
+        animationButton.backgroundColor = ColorConstant.viewBackground
         animationButton.layer.opacity = 0.8
         animationButton.layer.cornerRadius = 8
     }
@@ -86,17 +86,4 @@ class MenuViewController: UIViewController {
         let animationViewController = AnimationViewController()
         navigationController?.pushViewController(animationViewController, animated: true)
     }
-}
-
-extension UIColor {
-
-    convenience init(hex: Int) {
-        let components = (
-            R: CGFloat((hex >> 16) & 0xff) / 255,
-            G: CGFloat((hex >> 08) & 0xff) / 255,
-            B: CGFloat((hex >> 00) & 0xff) / 255
-        )
-        self.init(red: components.R, green: components.G, blue: components.B, alpha: 1)
-    }
-
 }

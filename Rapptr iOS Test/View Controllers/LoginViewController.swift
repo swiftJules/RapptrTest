@@ -58,17 +58,17 @@ class LoginViewController: UIViewController {
     }
     
     func configureButton() {
-        loginButton.setTitleColor(UIColor(hex: 0xFFFFFF), for: .normal)
-        loginButton.backgroundColor = UIColor(hex: 0x0E5C89)
+        loginButton.setTitleColor(ColorConstant.buttonText, for: .normal)
+        loginButton.backgroundColor = ColorConstant.backgroundBlue
     }
     
     func configureTextFields() {
         emailTextField.setLeftPaddingPoints(24)
         passwordTextField.setLeftPaddingPoints(24)
         emailTextField.attributedPlaceholder = NSAttributedString(string: "Email",
-                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor(hex: 0x5F6063)])
+                                                                  attributes: [NSAttributedString.Key.foregroundColor: ColorConstant.placeholder])
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password",
-                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor(hex: 0x5F6063)])
+                                                                     attributes: [NSAttributedString.Key.foregroundColor: ColorConstant.placeholder])
     }
     
     override func didReceiveMemoryWarning() {

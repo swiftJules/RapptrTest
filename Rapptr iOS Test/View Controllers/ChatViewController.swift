@@ -8,7 +8,7 @@ import Alamofire
 import Combine
 import UIKit
 
-class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ChatViewController: UIViewController, UITableViewDataSource {
     
     /**
      * =========================================================================================
@@ -41,10 +41,9 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     // MARK: - Private
     private func configureTable(tableView: UITableView) {
-        tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = UIColor(hex: 0xF9F9F9)
-        tableView.register(UINib(nibName: "ChatTableViewCell", bundle: nil), forCellReuseIdentifier: "ChatTableViewCell")
+        tableView.backgroundColor = ColorConstant.viewBackground
+        tableView.register(UINib(nibName: ChatConstant.chatCell, bundle: nil), forCellReuseIdentifier: ChatConstant.chatCell)
         tableView.separatorStyle = .none
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.rowHeight = UITableView.automaticDimension
@@ -58,7 +57,6 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 if dataResponse.error != nil {
                     // handle error
                 } else {
-                    print(dataResponse)
                     if let messageList = dataResponse.value?.data {
                         self.messages = messageList
                         self.chatTable.reloadData()
@@ -71,7 +69,6 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ChatTableViewCell") as? ChatTableViewCell else { fatalError() }
         cell.setCellData(message: messages[indexPath.row])
-        cell.backgroundColor = UIColor(hex: 0xF9F9F9)
         return cell
     }
     

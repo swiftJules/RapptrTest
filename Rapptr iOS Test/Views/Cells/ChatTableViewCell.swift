@@ -39,22 +39,21 @@ class ChatTableViewCell: UITableViewCell {
     
     func configureCellAppearance() {
         userImage.layer.cornerRadius = 25
-        
-        header.textColor = UIColor(hex: 0x1B1E1F)
-        body.textColor = UIColor(hex: 0x1B1E1F)
+        backgroundColor = ColorConstant.viewBackground
+
+        header.textColor = ColorConstant.chatText
+        body.textColor = ColorConstant.chatText
         
         bubble.layer.cornerRadius = 8
         bubble.layer.borderWidth = 1
-        bubble.layer.borderColor = UIColor(hex: 0xEFEFEF).cgColor
+        bubble.layer.borderColor = ColorConstant.chatBorder.cgColor
         bubble.layer.opacity = 1.0
     }
     
     func fetchImage(message: Message) {
         guard let url = message.avatar_url else { return }
         AF.request(url).responseData { (response) in
-            if response.error == nil {
-                print(response.result)
-                
+            if response.error == nil {                
                 if let data = response.data {
                     self.userImage.image = UIImage(data: data)
                 }
