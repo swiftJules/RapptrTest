@@ -21,10 +21,8 @@ import Foundation
  */
 
 class ChatClient {
-    let urlString = "http://dev.rapptrlabs.com/Tests/scripts/chat_log.php"
-    
     func fetchChats() -> AnyPublisher<DataResponse<Messages, Error>, Never> {
-        let url = URL(string: "http://dev.rapptrlabs.com/Tests/scripts/chat_log.php")!
+        let url = URL(string: NetworkConstant.chatLog)!
         return AF.request(url,
                           method: .get)
             .validate()

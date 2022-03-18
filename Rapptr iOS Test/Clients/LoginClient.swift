@@ -28,7 +28,7 @@ class LoginClient {
     
     func login(email: String, password: String, completion: @escaping (_ time: TimeInterval?, _ error: RequestError?) -> ()) -> Void {
         let parameters: Parameters = ["email": email, "password": password]
-        guard let url = URL(string: "http://dev.rapptrlabs.com/Tests/scripts/login.php") else { return }
+        guard let url = URL(string: NetworkConstant.loginURL) else { return }
         AF.request(url, method: .post, parameters: parameters)
             .validate()
             .response  { response in
