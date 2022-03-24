@@ -8,43 +8,30 @@
 import SwiftUI
 
 struct AnimationScreen: View {
-    @State private var animationShown: Bool = false
-    @State private var fadeIn: Bool = false
-    @State private var imageOffset: CGSize = .zero
-    
+    @State private var faded: Bool = false
+    @State private var location: CGPoint = CGPoint(x: 200, y: 200)
+
     var body: some View {
         VStack {
             Spacer()
-            if fadeIn {
                 Image("ic_logo")
                     .resizable()
                     .scaledToFit()
-                    .offset(x: imageOffset.width, y: imageOffset.height)
+                    .position(location)
                     .gesture(
                         DragGesture()
                             .onChanged { gesture in
-                                imageOffset = gesture.translation
-                            }
-                            .onEnded { _ in
-                                imageOffset = .zero
+                                location = gesture.location
                             }
                     )
-            }
+                    .isHidden(faded)
             Spacer()
             Button {
-                if !animationShown {
-                    withAnimation(.easeOut(duration: 2)) {
-                        self.fadeIn.toggle()
-                        self.animationShown.toggle()
-                    }
-                } else {
-                    withAnimation(.easeOut(duration: 2)) {
-                        self.fadeIn = false
-                        self.animationShown.toggle()
-                    }
+                withAnimation(.easeOut(duration: 2)) {
+                    self.faded.toggle()
                 }
             } label: {
-                Text(animationShown ? "FADE OUT" : "FADE IN")
+                Text(faded ? "FADE IN" : "FADE OUT")
                     .font(.system(size: 16))
                     .fontWeight(.semibold)
                     .foregroundColor(ColorConstant.animationScreenText)

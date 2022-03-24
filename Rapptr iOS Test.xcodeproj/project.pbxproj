@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		46CF7A6CEF0FCD8717EB04EF /* Pods_Rapptr_iOS_Test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 747A9C43C2D82C2D55710D36 /* Pods_Rapptr_iOS_Test.framework */; };
+		C979677D27ECEF34004CC7E4 /* View+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C979677C27ECEF34004CC7E4 /* View+ext.swift */; };
 		C97D80C227E4C97300FC8315 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D80C127E4C97300FC8315 /* Constants.swift */; };
 		C97D80C727E4CBEF00FC8315 /* UIColor+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D80C627E4CBEF00FC8315 /* UIColor+ext.swift */; };
 		C97D80C927E4CC4400FC8315 /* Color+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D80C827E4CC4400FC8315 /* Color+ext.swift */; };
@@ -36,6 +37,7 @@
 		747A9C43C2D82C2D55710D36 /* Pods_Rapptr_iOS_Test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rapptr_iOS_Test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E67A23594E3DE9AE802DB0F /* Pods-Rapptr iOS Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rapptr iOS Test.release.xcconfig"; path = "Target Support Files/Pods-Rapptr iOS Test/Pods-Rapptr iOS Test.release.xcconfig"; sourceTree = "<group>"; };
 		B9379A38EE31110CB52C3542 /* Pods-Rapptr iOS Test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rapptr iOS Test.debug.xcconfig"; path = "Target Support Files/Pods-Rapptr iOS Test/Pods-Rapptr iOS Test.debug.xcconfig"; sourceTree = "<group>"; };
+		C979677C27ECEF34004CC7E4 /* View+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ext.swift"; sourceTree = "<group>"; };
 		C97D80C127E4C97300FC8315 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C97D80C627E4CBEF00FC8315 /* UIColor+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ext.swift"; sourceTree = "<group>"; };
 		C97D80C827E4CC4400FC8315 /* Color+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+ext.swift"; sourceTree = "<group>"; };
@@ -91,9 +93,18 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		C979677B27ECEF1B004CC7E4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C979677C27ECEF34004CC7E4 /* View+ext.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C97D80C327E4CA8600FC8315 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C979677B27ECEF1B004CC7E4 /* View */,
 				C97D80C527E4CBD300FC8315 /* UIColor */,
 				C97D80C427E4CBCB00FC8315 /* Color */,
 			);
@@ -366,6 +377,7 @@
 				E9414DCE26C45F9200512A71 /* LoginClient.swift in Sources */,
 				C97D80C227E4C97300FC8315 /* Constants.swift in Sources */,
 				C97D80C927E4CC4400FC8315 /* Color+ext.swift in Sources */,
+				C979677D27ECEF34004CC7E4 /* View+ext.swift in Sources */,
 				E9414DE826C4618900512A71 /* MenuViewController.swift in Sources */,
 				E9414DCB26C45EC900512A71 /* Message.swift in Sources */,
 				E9414DEA26C468D700512A71 /* SceneDelegate.swift in Sources */,
