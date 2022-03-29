@@ -73,11 +73,6 @@ class LoginViewController: UIViewController {
                                                                      attributes: [NSAttributedString.Key.foregroundColor: ColorConstant.placeholder])
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func displayAlert(time: TimeInterval) {
         let timeInMilliseconds = String((time*1000).rounded())
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
