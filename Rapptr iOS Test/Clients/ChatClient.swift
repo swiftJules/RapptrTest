@@ -25,14 +25,14 @@ class ChatClient {
         let url = URL(string: NetworkConstant.chatLog)!
         return AF.request(url,
                           method: .get)
-            .validate()
-            .publishDecodable(type: Messages.self)
-            .map { response in
-                response.mapError { error in
-                    return error
-                }
+        .validate()
+        .publishDecodable(type: Messages.self)
+        .map { response in
+            response.mapError { error in
+                return error
             }
-            .receive(on: DispatchQueue.main)
-            .eraseToAnyPublisher()
+        }
+        .receive(on: DispatchQueue.main)
+        .eraseToAnyPublisher()
     }
 }
