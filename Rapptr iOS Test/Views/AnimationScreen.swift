@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AnimationScreen: View {
     @State private var faded: Bool = false
-    @State private var location: CGPoint = CGPoint(x: 200, y: 200)
+    @State private var location: CGPoint = CGPoint(x: UIScreen.main.bounds.width/2, y: 200)
 
     var body: some View {
         VStack {
