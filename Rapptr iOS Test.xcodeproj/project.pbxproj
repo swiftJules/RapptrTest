@@ -15,6 +15,7 @@
 		C9F54A0827DED4F900C86B51 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F54A0727DED4F900C86B51 /* Messages.swift */; };
 		C9F54A0E27E0F44100C86B51 /* AnimationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F54A0D27E0F44100C86B51 /* AnimationScreen.swift */; };
 		C9F54A1027E20B8800C86B51 /* RequestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F54A0F27E20B8800C86B51 /* RequestResponse.swift */; };
+		D6E5824E27F77AC60045D0DF /* UITextField+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E5824D27F77AC60045D0DF /* UITextField+ext.swift */; };
 		E9414DB726C45CF300512A71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9414DB626C45CF300512A71 /* AppDelegate.swift */; };
 		E9414DC026C45CF400512A71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9414DBF26C45CF400512A71 /* Assets.xcassets */; };
 		E9414DC326C45CF400512A71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9414DC126C45CF400512A71 /* LaunchScreen.storyboard */; };
@@ -44,6 +45,7 @@
 		C9F54A0727DED4F900C86B51 /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 		C9F54A0D27E0F44100C86B51 /* AnimationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationScreen.swift; sourceTree = "<group>"; };
 		C9F54A0F27E20B8800C86B51 /* RequestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestResponse.swift; sourceTree = "<group>"; };
+		D6E5824D27F77AC60045D0DF /* UITextField+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+ext.swift"; sourceTree = "<group>"; };
 		E9414DB326C45CF300512A71 /* Rapptr iOS Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rapptr iOS Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9414DB626C45CF300512A71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9414DBF26C45CF400512A71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 		C97D80C327E4CA8600FC8315 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D6E5824C27F77AA40045D0DF /* UITextField */,
 				C979677B27ECEF1B004CC7E4 /* View */,
 				C97D80C527E4CBD300FC8315 /* UIColor */,
 				C97D80C427E4CBCB00FC8315 /* Color */,
@@ -168,6 +171,14 @@
 				C97D80C127E4C97300FC8315 /* Constants.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		D6E5824C27F77AA40045D0DF /* UITextField */ = {
+			isa = PBXGroup;
+			children = (
+				D6E5824D27F77AC60045D0DF /* UITextField+ext.swift */,
+			);
+			path = UITextField;
 			sourceTree = "<group>";
 		};
 		E9414DAA26C45CF300512A71 = {
@@ -379,6 +390,7 @@
 				C97D80C927E4CC4400FC8315 /* Color+ext.swift in Sources */,
 				C979677D27ECEF34004CC7E4 /* View+ext.swift in Sources */,
 				E9414DE826C4618900512A71 /* MenuViewController.swift in Sources */,
+				D6E5824E27F77AC60045D0DF /* UITextField+ext.swift in Sources */,
 				E9414DCB26C45EC900512A71 /* Message.swift in Sources */,
 				E9414DEA26C468D700512A71 /* SceneDelegate.swift in Sources */,
 				C9F54A0827DED4F900C86B51 /* Messages.swift in Sources */,
